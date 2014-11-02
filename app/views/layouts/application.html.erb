@@ -11,17 +11,17 @@
 
   <!-- tw card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@nypl_labs">
-  <meta name="twitter:title" content="Building Inspector - Kill Time. Make History.">
-  <meta name="twitter:description" content="Help unlock New York City's past by identifying buildings and other details on beautiful old maps.">
+  <!--<meta name="twitter:site" content="@nypl_labs">--><!-- Needs updating if we get a twitter account-->
+  <meta name="twitter:title" content="Re:Building - Historic maps in a digital age">
+  <meta name="twitter:description" content="Help unlock the past by identifying buildings and other details on beautiful old maps.">
   <meta name="twitter:image:src" content="<%= request.protocol + request.host_with_port + image_path("card.jpg") %>">
   <meta name="twitter:domain" content="<%= request.protocol + request.host_with_port %>/">
 
   <!-- fb og -->
-  <meta name="og:title" content="Building Inspector - Kill Time. Make History.">
+  <meta name="og:title" content="Re:Building - Historic maps in a digital age">
   <meta name="og:type" content="website">
   <meta name="og:image" content="<%= request.protocol + request.host_with_port + image_path("card.jpg") %>">
-  <meta name="og:description" content="Help unlock New York City's past by identifying buildings and other details on beautiful old maps.">
+  <meta name="og:description" content="Help unlock the past by identifying buildings and other details on beautiful old maps.">
   <meta name="og:url" content="<%= request.protocol + request.host_with_port %>/">
 
   <link rel="apple-touch-icon" href="/apple-touch-icon-iphone.png">
@@ -62,25 +62,11 @@
 <body>
 
 <div id="ie8">
-  <p>Building Inspector is not compatible with Internet Explorer 10 or earlier. Please <a href="http://microsoft.com/ie">download a more recent version</a> or try <a href="http://www.getfirefox.com">another browser</a>.</p>
+  <p>Rebuilding is not compatible with Internet Explorer 10 or earlier. Please <a href="http://microsoft.com/ie">download a more recent version</a> or try <a href="http://www.getfirefox.com">another browser</a>.</p>
 </div>
 
 <%= yield %>
 
-<script>
-  var _gaq = _gaq || [];
-  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
-  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
-  _gaq.push(['_setAccount', 'UA-1420324-118']);
-  _gaq.push(['_setDomainName', 'nypl.org']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+<!-- A google analytics script can be dropped in here. For now I've removed the NYPL one -->
 </body>
 </html>

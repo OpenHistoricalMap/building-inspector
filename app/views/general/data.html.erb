@@ -1,4 +1,4 @@
-<% content_for :page_title do %>Data - Building Inspector by NYPL Labs<% end %>
+<% content_for :page_title do %>Data - Rebuilding by OpenHistoricalMap<% end %>
 <% content_for :dynamic_js do %>
   <%= stylesheet_link_tag    "home", :media => "all" %>
   <%= stylesheet_link_tag    "lib/vendor/highlight.default", :media => "all" %>
@@ -12,43 +12,43 @@
   <div id="intro" class="about">
     <h3>FREE polygons for fun (and profit)!</h3>
 
-    <p>Why bother classifying thousands of building footprints if you can't get your hands on the resulting data, right? Well, fear not! Building Inspector has been built from the beginning to be open. As volunteers (like yourself) inspect polygons, the API endpoints below get updated (on a daily basis) to reflect the latest data (both the perfect and the imperfect bits).</p>
+    <p>Why bother classifying thousands of building footprints if you can't get your hands on the resulting data, right? Well, fear not! <em>Rebuilding</em> has been built from the beginning to be open. As volunteers (like yourself) inspect polygons, the API endpoints below get updated (on a daily basis) to reflect the latest data (both the perfect and the imperfect bits).</p>
 
-    <p>Read below for some basic documentation. If you need more detailed information, check out the <%= link_to "source code on GitHub", "https://github.com/NYPL/building-inspector" %> or drop us a line at <%= link_to "buildinginspector@nypl.org", "mailto:buildinginspector@nypl.org" %> or at <%= link_to "our Twitter account", "http://www.twitter.com/nypl_labs" %>.</p>
+    <p>Read below for some basic documentation. If you need more detailed information, check out the <%= link_to "source code on GitHub", "https://github.com/OpenHistoricalMap/building-inspector" %> or drop us a line at <!--<%= link_to "buildinginspector@nypl.org", "mailto:buildinginspector@nypl.org" %> or at --><%= link_to "our Twitter account", "http://www.twitter.com/tim_waters" %>.</p>
 
     <h5><a name="contents"></a>Contents</h5>
     <ul id="toc">
       <li><strong><%= link_to "Basics", "#basics" %></strong></li>
       <li><strong><%= link_to "Geometry", "#geometry" %></strong></li>
-      <li><strong><%= link_to "Color", "#color" %></strong></li>
-      <li><strong><%= link_to "Address", "#address" %></strong></li>
+      <!--<li><strong><%= link_to "Color", "#color" %></strong></li>
+      <li><strong><%= link_to "Address", "#address" %></strong></li>-->
     </ul>
 
     <h4><a name="basics"></a>Some basics</h4>
 
-    <p>In order to understand the API endpoints you first need to understand some basic Building Inspector concepts:</p>
+    <p>In order to understand the API endpoints you first need to understand some basic <em>Rebuilding</em> concepts:</p>
 
     <dl>
         <dt>GeoJSON</dt>
         <dd>Everything in this API is returned as a <%= link_to "GeoJSON string", "http://geojson.org/" %>. You can easily verify/visualize the output using <%= link_to "GeoJSONLint", "http://geojsonlint.com/" %> or <%= link_to "GeoJSON.io", "http://geojson.io"%>.</dd>
         <dt>Polygon</dt>
-        <dd>Polygons are the building blocks of the Building Inspector (har har). Polygons are possible building footprints that have been identified by the <%= link_to "NYPL Map Vectorizer", "https://github.com/NYPL/map-vectorizer" %>. The vectorizer produces some extra metadata that you can safely ignore (and may or may not be included in the API).</dd>
+        <dd>Polygons are the reason this site exists. They represent possible building footprints that have been identified by our automated process, the <%= link_to "NYPL Map Vectorizer", "https://github.com/NYPL/map-vectorizer" %>. The vectorizer produces some extra metadata that you can safely ignore (and may or may not be included in the API).</dd>
         <dt>Maps: Atlases and Sheets</dt>
-        <dd>The maps in Building Inspector come from historical atlases of New York City which, rather than being one big map, are split into pages (because they're in books). Polygons come from atlas sheets which are scanned one at a time and then geo-rectified via the <%= link_to "NYPL Map Warper", "http://maps.nypl.org/warper" %>. The vectorizer goes through each map sheet and extracts buildings as best it can. And it's not good enough; that's why this site exists: to validate and improve the output of the vectorizer. Each polygon is associated to a <code>sheet_id</code>.</dd>
+        <dd>The maps in <em>Rebuilding</em> come from historical atlases which, rather than being one big map, are split into pages (or "sheets"). Polygons come from atlas sheets which are scanned one at a time and then geo-rectified via tools such as the <%= link_to "Map Warper", "http://mapwarper.net" %>. The vectorizer goes through each map sheet and extracts buildings as best it can. And it's not good enough; that's why this site exists: to validate and improve the output of the vectorizer. Each polygon is associated to a <code>sheet_id</code>.</dd>
         <dt>Task</dt>
-        <dd>The type of inspection being made to a polygon. Right now there are four tasks: <code>geometry</code>, <code>polygonfix</code>, <code>address</code>, and <code>color</code>.</dd>
+        <dd>The type of inspection being made to a polygon. Right now there are two tasks: <code>geometry</code> and <code>polygonfix</code><!--, <code>address</code>, and <code>color</code>-->.</dd>
         <dt>Consensus</dt>
         <dd>In order to create reliable results, we present the same task several times to multiple users. We then run a process to make an effective decision of which value is the correct one based on an overwhelming user agreement. This is what we call &ldquo;consensus&rdquo;. The mechanism for consensus varies from task to task. <strong>This API only returns consensus values.</strong></dd>
         <dt>Geometry task</dt>
         <dd>This is the main/first task for any polygon. You are inspecting a polygon to find out if its shape: matches a building (value: <code>YES</code>), matches part of a building but needs fixing (value: <code>FIX</code>) or does not match a building at all (value: <code>NO</code>).</dd>
         <dt>Polygonfix task</dt>
         <dd>Polygons that are classified as <code>FIX</code> get sent to this task. Its purpose is to create new geometry(ies) that will better match the building(s). The resulting value is(are) GeoJSON geometry(ies).</dd>
-        <dt>Address task</dt>
+        <!--<dt>Address task</dt>
         <dd>Polygons that are classified as <code>YES</code> get sent to this task. Its purpose is to find the address numbers (if any) associated to a given polygon. The resulting value is an array of address numbers with their latitude and longitude values or <code>NONE</code>.</dd>
         <dt>Colors task</dt>
-        <dd>Polygons that are classified as <code>YES</code> also get sent to this task. Its purpose is to find the colors present in a building. The resulting value is a comma-separated string with any of the colors. Current possible colors are <code>pink</code>, <code>blue</code>, <code>yellow</code>, <code>green</code> and <code>gray</code>.</dd>
+        <dd>Polygons that are classified as <code>YES</code> also get sent to this task. Its purpose is to find the colors present in a building. The resulting value is a comma-separated string with any of the colors. Current possible colors are <code>pink</code>, <code>blue</code>, <code>yellow</code>, <code>green</code> and <code>gray</code>.</dd>-->
     </dl>
-    <p><strong>Note:</strong> Not all tasks and consensus types have been implemented. If you <em>definitely have to have</em> those polygons (and we can't blame you) contact us at <%= link_to "our Twitter account", "http://www.twitter.com/nypl_labs" %> and we'll hook you up.
+    <!--<p><strong>Note:</strong> Not all tasks and consensus types have been implemented. If you <em>definitely have to have</em> those polygons (and we can't blame you) contact us at <%= link_to "our Twitter account", "http://www.twitter.com/nypl_labs" %> and we'll hook you up.-->
     <h5>Pagination</h5>
     <p>All results are paginated by <strong>batches of 500 results</strong> (you can always get fewer). You can append <code>/page/:page</code> to any endpoint to request the specific page. If you do not request a specific page, the first one will be returned. If you attempt to access a page beyond the last page you'll be returned an empty GeoJSON result.</p>
     <h4><a name="geometry"></a>Geometry</h4>
@@ -116,7 +116,7 @@
   ]
 }        </code>
     </pre>
-    <h4><a name="color"></a>Color</h4>
+<!--    <h4><a name="color"></a>Color</h4>
     <h5>GET /api/polygons/color/{value}</h5>
     <p>Returns the list of polygons that were marked as "yes" in the geometry task and have a consensus of <code>{value}</code> (pink, blue, yellow, green, gray or a <em>combination of those in alphabetical order</em>).</p>
     <h6>Example response</h6>
@@ -246,7 +246,7 @@
   ]
 }        </code>
     </pre>
-
+-->
   </div>
 </div>
 

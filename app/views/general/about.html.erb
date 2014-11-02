@@ -1,4 +1,4 @@
-<% content_for :page_title do %>About - Building Inspector by NYPL Labs<% end %>
+<% content_for :page_title do %>About - Rebuilding by OpenHistoricalMap<% end %>
 <% content_for :dynamic_js do %>
   <%= stylesheet_link_tag    "home", :media => "all" %>
   <%= javascript_include_tag "about" %>
@@ -13,11 +13,11 @@
 
     <p>For years libraries, private collectors and Wikimedia Commons have gathered thousands of maps documenting our ever-changing urban landscapes. These street atlases contain a wealth of detailed information about cities now largely lost to us: buildings long ago destroyed, streets renamed, whole neighbourhoods redrawn or redefined. Making these lost places findable via contemporary digital maps allows us to drill down through the layers of urban change and study our cities in profound new ways. But harvesting the data isn't easy.</p>
 
-    <p>Thanks to the amazing work of The New York Public Library we now have an automated tool that can extract building footprints from these historic maps. It's not perfect though and that's where the Historic Map Marker (and you) come in. Using this site you will be completing easy, bite-sized tasks, to help check the initial results and capture other valuable information. The goal? To produce a comprehensive directory of old urban landscapes (or, as we like to think of it, a time machine).</p>
+    <p>Thanks to the amazing work of The New York Public Library we now have an automated tool that can extract building footprints from these historic maps. It's not perfect though and that's where this <em>Rebuilding</em> site (and you) come in. Using this site you will be completing easy, bite-sized tasks, to help check the initial results and capture other valuable information. The goal? To produce a comprehensive directory of old urban landscapes (or, as we like to think of it, a time machine).</p>
 
     <p>With that information organized and searchable, we can ask new kinds of questions about history. It will also allow us to link historical documents to historical places: archival records, old newspapers, business directories, photographs, restaurant menus, theatre playbills etc., opening up new ways to research, learn, and discover the past. Perhaps you could explore a city's past on foot with your mobile device, 'checking in' to ghostly establishments and bygone events.</p>
 
-    <p>Historic Map Marker was adapted from a <a href="http://www.nypl.org/labs">NYPL Labs</a> project entitled Building Inspector. If your interest lies in digitizing maps of New York, please visit their <a href="http://buildinginspector.nypl.org/">site</a>.</p>
+    <p><em>Rebuilding</em> was adapted from a <a href="http://www.nypl.org/labs">NYPL Labs</a> project entitled Building Inspector. If your interest lies in digitizing maps of New York, please visit their <a href="http://buildinginspector.nypl.org/">site</a>.</p>
 
     <p>Questions? Comments? Want to stay in touch as the project develops? Contact us at via our <a href="https://lists.openstreetmap.org/listinfo/historic">mailing list</a> or reach out to us on <a href="https://twitter.com/tim_waters">Twitter</a>.</p>
      <h3 class="major">How Your Contributions Help</h3>
@@ -25,7 +25,7 @@
 
      <ul id="about-task-list">
           <li><%= link_to(image_tag("icon-geometry.svg", :class=>"task-icon"), geometry_path, :class=>"link-task") %> <strong>Check Footprints</strong> - We show you the buildings the automated process identified, one outline at a time. You tell us whether it is right, wrong, or close but in need of fixing.</li>
-          <li><%= link_to(image_tag("icon-polygonfix.svg", :class=>"task-icon"), polygonfix_path, :class=>"link-task") %> <strong>Fix Footprints</strong> - Take those slightly imperfect footprints identified by your fellow Historic Map Markers and get them into shape to be recorded for history.<br /></li>
+          <li><%= link_to(image_tag("icon-polygonfix.svg", :class=>"task-icon"), polygonfix_path, :class=>"link-task") %> <strong>Fix Footprints</strong> - Take those slightly imperfect footprints identified by your fellow Rebuilders and get them into shape to be recorded for history.<br /></li>
           <!--<li><%= link_to(image_tag("icon-address.svg", :class=>"task-icon"), address_path, :class=>"link-task") %> <strong>Enter Addresses</strong> -  Getting those original street numbers will help us to reference specific buildings in their historical context (and, eventually, to see who lived/worked there).<br /></li>
           <li><%= link_to(image_tag("icon-color.svg", :class=>"task-icon"), color_path, :class=>"link-task") %> <strong>Classify Colors</strong> - The original mapmakers color-coded the buildings to indicate construction materials and use types (residential vs. commercial). Identifying the colors helps us index these important details.<br /></li>-->
         </ul>
@@ -33,11 +33,11 @@
      <p>We aim to add new tasks as we continue to work with more world-class libraries and historic map sources. Be sure to check back regularly for these addtional tasks.</p>
      <h3 class="major">How Is Accuracy Ensured?</h3>
 
-    <p>Every time you check a building, you’re essentially casting a vote alongside your fellow Historic Map Markers. We show the same footprint and task to several people and tally up those votes to decide whether they agree.</p>
+    <p>Every time you check a building, you’re essentially casting a vote alongside your fellow Rebuilders. We show the same footprint and task to several people and tally up those votes to decide whether they agree.</p>
 
-    <p>For example, for Footprint Inspection, we show the same footprint to at least 3 different people, and every 10 minutes we tally up the votes. If 75% or more agree, that footprint has reached “consensus” and the system removes it from the Historic Map Marker queue. If the jury's still out, we keep the footprint in circulation until consensus is reached, focusing our collective efforts on the buildings most in need.</p>
+    <p>For example, for Footprint Inspection, we show the same footprint to at least 3 different people, and every 10 minutes we tally up the votes. If 75% or more agree, that footprint has reached “consensus” and the system removes it from the Rebuilding queue. If the jury's still out, we keep the footprint in circulation until consensus is reached, focusing our collective efforts on the buildings most in need.</p>
 
-    <p>The main takeaway here is: relax! Your fellow Historic Map Markers have got your back. <em>It's no big deal if make a mistake once in a while, or make your best guess on an ambiguous case.</em> The community will double, triple, and quadruple check you, and you them. Go Team!</p>
+    <p>The main takeaway here is: relax! Your fellow Rebuilders have got your back. <em>It's no big deal if make a mistake once in a while, or make your best guess on an ambiguous case.</em> The community will double, triple, and quadruple check you, and you them. Go Team!</p>
   </div>
     <div id="home-explained">
   <h3 class="major">How Did We Get Here?</h3>
@@ -75,7 +75,7 @@
   <div class="grouper">
     <h4 class="numeral">4</h4>
     <h3>Inspect!</h3>
-    <p class="centered">You take it from here! The rest is up to you. With the help of your fellow Historic Map Markers, you’ll be unlocking the future our cities’ past!</p>
+    <p class="centered">You take it from here! The rest is up to you. With the help of your fellow Rebuilders, you’ll be unlocking the future our cities’ past!</p>
 
     <p class = "centered">When all these tasks come together, it produces incredibly important geospatial data about our historical buildings. You can learn more about the data and how to access it on our <a href="/general/data">Data page</a>. All geospatial vector data produced by this project is released under a <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons-0 Designation</a>, meaning you can use it however you like.</p>
 

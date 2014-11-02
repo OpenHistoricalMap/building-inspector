@@ -8,7 +8,7 @@ help_link = "javascript:;" if @current_page=="geometry" || @current_page=="addre
 %>
   <div id="task-container">
     <ul id="task-toggle">
-      <%= content_tag :li, "INSPECT:", {:rel=>"nofollow", :class=> @current_page == "homepage" || @current_page.include?("progress") ? "inspect shown" : "inspect header"} %>
+      <%= content_tag :li, "RE:BUILD", {:rel=>"nofollow", :class=> @current_page == "homepage" || @current_page.include?("progress") ? "inspect shown" : "inspect header"} %>
       <% @global_tasks.each do |task| %>
       <%= content_tag :li, (link_to_unless_current task[:name], task[:path], {:rel=>"nofollow", :class=>(@current_page==task[:page] ? "shown task-link" : "task-link")}), :class=>(@current_page!=task[:page] ? "hidden" : "shown") %>
       <% end %>

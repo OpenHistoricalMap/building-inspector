@@ -2,8 +2,8 @@
 <div id="top-nav">
   <div class="scrollable">
     <div id="nav-branding">
-      <%= link_to (content_tag "span","The New York Public Library"), "http://www.nypl.org", {:class => "nypl-logo", :title => "Visit NYPL.org"} %>
-      <h1 class="logo"><a href="/" id="home-logo"><span>Building Inspector</span></a></h1>
+      <%= link_to (content_tag "span","OpenHistoricalMap"), "http://www.openhistoricalmap.org", {:class => "nypl-logo", :title => "Visit OpenHistoricalMap.org, our parent project."} %>
+      <h1 class="logo"><a href="/" id="home-logo"><span>Rebuidling</span></a></h1>
     </div>
     <% if !soon %>
     <%= render :partial => "partials/task-nav" %>
@@ -15,7 +15,7 @@
     <% end %>
 
     <div id="nav-credits">
-      <p>A project of <%= link_to "NYPL Labs", "http://www.nypl.org/collections/labs" %> and the <%= link_to "Lionel Pincus and Princess Firyal Map Division", "http://www.nypl.org/locations/schwarzman/map-division" %>.</p>
+      <p>A project of <%= link_to "OpenHistoricalMap", "http://openhistoricalmap.org" %>.</p>
     </div>
   </div>
   <%= render :partial => "partials/score" unless controller_name == "general" || soon %>

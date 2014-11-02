@@ -1,4 +1,4 @@
-<% content_for :page_title do %>OpenHistoricalMap's Building Inspector by NYPL Labs<% end %>
+<% content_for :page_title do %>Rebuilding by OpenHistoricalMap<% end %>
 <% content_for :dynamic_js do %>
   <%= stylesheet_link_tag "home", :media => "all" %>
   <%= javascript_include_tag "home" %>
@@ -9,10 +9,10 @@
 <div id="main-container">
   <div id="welcome">
     <div class="wrapper">
-      <h2>Launching soon....</h2>
-      <h5>Make your mark on history with the</h5>
-      <h3>Historic Map Marker</h3>
-      <h4>An <a href="http://openhistoricalmap.org" target="new">OpenHistoricalMap.org</a> project.</h4>
+      <h2>Launching soon...</h2>
+      <h5><a href="http://openhistoricalmap.org" target="new">OpenHistoricalMap.org</a> presents</h5>
+      <h3>Re:Building</h3>
+      <h4>Historic maps in a digital age</h4>
       <hr />
       <p>Welcome citizen cartographers!<br />Help unlock the past by identifying<br />buildings and other details on beautiful old maps.</p>
       <%= link_to "GET STARTED", "javascript:;", :id => "link-learn-more", :class => "learn-more big-button" %>
@@ -52,7 +52,7 @@
             <polygon class="poly-c" fill="none" stroke="#FF0000" stroke-width="3" stroke-miterlimit="10" points="562.3,163.1 472.4,59.2 551.3,37.1 648.6,135.1 "/>
           </svg>
         </li>
-        <li id="slide2" class="slide">
+        <!--<li id="slide2" class="slide">
           <%= link_to "", address_path, {:id => "slide-address"} %>
           <div class="wrap">
             <div id="slide2-a" class="number">123</div>
@@ -82,13 +82,13 @@
             <polygon class="poly-c" fill="none" stroke="#FF0000" stroke-width="3" stroke-miterlimit="10" points="562.3,163.1 472.4,59.2 551.3,37.1 648.6,135.1 "/>
             <polygon class="poly-d" fill="none" stroke="#FF0000" stroke-width="3" stroke-miterlimit="10" points="352.5,110.6 377.6,97.2 389.8,113.1 364.2,126.7 "/>
           </svg>
-        </li>
+        </li>-->
       </ul>
       <div id="slide-buttons">
         <%= link_to "CHECK FOOTPRINTS", geometry_path, {:id => "link-geometry", :class => "home-link"} %>
-        <%= link_to "FIX FOOTPRINTS", polygonfix_path, {:id => "link-polygonfix", :class => "home-link"} %>
+        <%= link_to "FIX FOOTPRINTS", polygonfix_path, {:id => "link-polygonfix", :class => "home-link"} %><!--
         <%= link_to "ENTER ADDRESSES", address_path, {:id => "link-address", :class => "home-link"} %>
-        <%= link_to "CLASSIFY COLORS", color_path, {:id => "link-color", :class => "home-link"} %>
+        <%= link_to "CLASSIFY COLORS", color_path, {:id => "link-color", :class => "home-link"} %>-->
       </div>
     </div>
     <div>
@@ -104,10 +104,10 @@
             <br /><%= link_to("Inspect more!", geometry_path, :class=>"link-task") %></li>
           <li><%= link_to(image_tag("icon-polygonfix.svg", :class=>"task-icon"), polygonfix_path, :class=>"link-task") %> <strong><%= @score_polygonfix %></strong> <%= "footprint".pluralize(@score_polygonfix) %> fixed
             <br /><%= link_to("Inspect more!", polygonfix_path, :class=>"link-task") %></li>
-          <li><%= link_to(image_tag("icon-address.svg", :class=>"task-icon"), address_path, :class=>"link-task") %> <strong><%= @score_address %></strong> <%= "building".pluralize(@score_address) %> addressed
+          <!--<li><%= link_to(image_tag("icon-address.svg", :class=>"task-icon"), address_path, :class=>"link-task") %> <strong><%= @score_address %></strong> <%= "building".pluralize(@score_address) %> addressed
             <br /><%= link_to("Inspect more!", address_path, :class=>"link-task") %></li>
           <li><%= link_to(image_tag("icon-color.svg", :class=>"task-icon"), color_path, :class=>"link-task") %> <strong><%= @score_color %></strong> color <%= "ID".pluralize(@score_color) %>
-            <br /><%= link_to("Inspect more!", color_path, :class=>"link-task") %></li>
+            <br /><%= link_to("Inspect more!", color_path, :class=>"link-task") %></li>-->
         </ul>
     </div>
     <% end %>

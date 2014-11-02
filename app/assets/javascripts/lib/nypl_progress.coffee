@@ -9,9 +9,9 @@ class @Progress
     window.nypl_progress = @ # to make it accessible from console
 
     @ids = [] # for timed animations (highlights)
-    @_SW = new L.LatLng(40.62563874006115,-74.13093566894531)
-    @_NE = new L.LatLng(40.81640757520087,-73.83087158203125)
-
+    @_SW = new L.LatLng(51.477893, -0.180785)
+    @_NE = new L.LatLng(51.521296, 0.062866)
+#0.2989,51.4137,0.0786,51.5811
     defaults =
       task: '' # geometry, address, polygonfix
       mode: '' # user, all
